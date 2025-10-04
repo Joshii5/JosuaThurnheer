@@ -398,8 +398,8 @@
       p.className = 'particle';
       p.style.left = Math.random() * window.innerWidth + 'px';
       p.style.top = Math.random() * window.innerHeight + 'px';
-      p.dataset.angle = Math.random() * 360;
-      p.dataset.speed = 0.1 + Math.random() * 0.6;
+      p.dataset.angle = Math.random() * 360/2;
+      p.dataset.speed = -Math.random() * -0.5 - 0.2;
       particleLayer.appendChild(p);
       particles.push(p);
     }
@@ -410,7 +410,7 @@
       particles.forEach(p => {
         const angle = (parseFloat(p.dataset.angle) + s * p.dataset.speed) % 360;
         // deslocamento no eixo Y (partículas "seguem" a rolagem)
-        const offsetY = s * -0.2 * p.dataset.speed; // ajuste o 0.2 para mais/menos movimento
+        const offsetY = s * -0.7 * p.dataset.speed; // ajuste o 0.7 para mais/menos movimento
       p.style.transform = `translateY(${offsetY}px) rotate(${angle}deg)`;
       });
     });
