@@ -140,7 +140,7 @@
   .parallax-layer.particles {
     position: fixed;
     inset: 0;
-    z-index: -2; /* atrás das camadas principais */
+    z-index: -1; /* atrás das camadas principais */
     pointer-events: none;
     overflow: hidden;
   }
@@ -149,7 +149,7 @@
     width: 32px;
     height: 32px;
     background: url('particle.png') no-repeat center/contain;
-    opacity: 0.7;
+    opacity: 1;
     transform-origin: center;
   }
 
@@ -161,8 +161,8 @@
   <!-- parallax layers (use bg0004..bg0001.png). Note: no 'transform' inline. -->
   <div class="parallax-layer l1" style="background-image:url('bg0004.png');"></div>
   <div class="parallax-layer l2" style="background-image:url('bg0003.png');"></div>
-  <div class="parallax-layer l3" style="background-image:url('bg0002.png');"></div>
-  <div class="parallax-layer l4" style="background-image:url('bg0001.png');"></div>
+  <div class="parallax-layer l3" style="background-image:url('bg0001.png');"></div>
+  <div class="parallax-layer l4" style="background-image:url('bg0002.png');"></div>
   
     <!-- camada de partículas -->
   <div class="parallax-layer particles"></div>
@@ -357,7 +357,7 @@
       {el: document.querySelector('.parallax-layer.l1'), speed: 0.05},
       {el: document.querySelector('.parallax-layer.l2'), speed: 0.2},
       {el: document.querySelector('.parallax-layer.l3'), speed: 0.4},
-      {el: document.querySelector('.parallax-layer.l4'), speed: 0.8}
+      {el: document.querySelector('.parallax-layer.l4'), speed: 0.7}
     ];
 
     function updateParallax(){
@@ -382,7 +382,7 @@
     // initial update
     updateParallax();
 
-        // ============================
+    // ============================
     // partículas
     // ============================
     const particleLayer = document.querySelector('.parallax-layer.particles');
