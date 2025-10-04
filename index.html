@@ -112,9 +112,10 @@
       background-position:center top;
       background-size:cover;
       pointer-events:none;
-      opacity:0.3}
-    .parallax-layer.l2{opacity:0.2}
-    .parallax-layer.l3{opacity:0.1}
+      opacity:1}
+    .parallax-layer.l2{opacity:1}
+    .parallax-layer.l3{opacity:1}
+    .parallax-layer.l3{opacity:1}
 
   </style>
 </head>
@@ -124,6 +125,7 @@
   <div class="parallax-layer l1" style="background-image:url('bg0001.png');transform:translateZ(0) scale(1.05);"></div>
   <div class="parallax-layer l2" style="background-image:url('bg0002.png');transform:translateZ(0) scale(1.12);"></div>
   <div class="parallax-layer l3" style="background-image:url('bg0003.png');transform:translateZ(0) scale(1.15);"></div>
+  <div class="parallax-layer l4" style="background-image:url('bg0004.png');transform:translateZ(0) scale(1.15);"></div>
 
   <div class="wrap">
     <header class="reveal">
@@ -316,11 +318,13 @@
     const l1 = document.querySelector('.parallax-layer.l1');
     const l2 = document.querySelector('.parallax-layer.l2');
     const l3 = document.querySelector('.parallax-layer.l3');
+    const l4 = document.querySelector('.parallax-layer.l4');
     window.addEventListener('scroll',()=>{
       const s = window.scrollY;
-      if(l1) l1.style.transform = `translateY(${s*-0.06}px) scale(1.05)`;
-      if(l2) l2.style.transform = `translateY(${s*-0.12}px) scale(1.12)`;
-      if(l3) l3.style.transform = `translateY(${s*-0.12}px) scale(1.12)`;
+      if(l1) l1.style.transform = `translateY(${s*-0.20}px) scale(1.05)`;
+      if(l2) l2.style.transform = `translateY(${s*-0.15}px) scale(1.12)`;
+      if(l3) l3.style.transform = `translateY(${s*-0.10}px) scale(1.12)`;
+      if(l4) l4.style.transform = `translateY(${s*-0.05}px) scale(1.12)`;
     });
 
     // mobile-friendly focus outline for keyboard users
