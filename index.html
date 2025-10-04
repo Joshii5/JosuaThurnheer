@@ -410,7 +410,7 @@
       particles.forEach(p => {
         const angle = (parseFloat(p.dataset.angle) + s * p.dataset.speed) % 360;
         // deslocamento no eixo Y (partículas "seguem" a rolagem)
-        const offsetY = s * -0.7 * p.dataset.speed; // ajuste o 0.3 para mais/menos movimento
+        const offsetY = s * -0.2 * p.dataset.speed; // ajuste o 0.2 para mais/menos movimento
       p.style.transform = `translateY(${offsetY}px) rotate(${angle}deg)`;
       });
     });
