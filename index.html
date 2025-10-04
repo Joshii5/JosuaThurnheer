@@ -136,6 +136,24 @@
       .parallax-layer{background-size:cover}
     }
 
+      /* partículas */
+  .parallax-layer.particles {
+    position: fixed;
+    inset: 0;
+    z-index: -2; /* atrás das camadas principais */
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .particle {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    background: url('particle.png') no-repeat center/contain;
+    opacity: 0.7;
+    transform-origin: center;
+  }
+
+
   </style>
 </head>
 <body>
@@ -145,6 +163,10 @@
   <div class="parallax-layer l2" style="background-image:url('bg0003.png');"></div>
   <div class="parallax-layer l3" style="background-image:url('bg0002.png');"></div>
   <div class="parallax-layer l4" style="background-image:url('bg0001.png');"></div>
+  
+    <!-- camada de partículas -->
+  <div class="parallax-layer particles"></div>
+
 
   <div class="wrap">
     <header class="reveal">
@@ -359,6 +381,42 @@
 
     // initial update
     updateParallax();
+
+        // ============================
+    // partículas
+    // ============================
+    const particleLayer = document.querySelector('.parallax-layer.particles');
+    const numParticles = 25;
+    const particles = [];
+
+    for (let i = 0; i < numParticles; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      p.style.left = Math.random() * window.innerWidth + 'px';
+      p.style.top = Math.random() * window.innerHeight + 'px';
+      p.dataset.angle = Math.random() * 360;
+      p.dataset.speed = 0.1 + Math.random() * 0.4;
+      particleLayer.appendChild(p);
+      particles.push(p);
+    }
+
+    // rotação com scroll
+    window.addEventListener('scroll', () => {
+      const s = window.scrollY;
+      particles.forEach(p => {
+        const angle = (parseFloat(p.dataset.angle) + s * p.dataset.speed) % 360;
+        p.style.transform = `rotate(${angle}deg)`;
+      });
+    });
+
+    // reposicionar no resize
+    window.addEventListener('resize', () => {
+      particles.forEach(p => {
+        p.style.left = Math.random() * window.innerWidth + 'px';
+        p.style.top = Math.random() * window.innerHeight + 'px';
+      });
+    });
+
 
     // mobile-friendly focus outline for keyboard users
     document.body.addEventListener('keydown',(e)=>{
