@@ -399,7 +399,7 @@
       p.style.left = Math.random() * window.innerWidth + 'px';
       p.style.top = Math.random() * window.innerHeight + 'px';
       p.dataset.angle = Math.random() * 360/2;
-      p.dataset.speed = -Math.random() * -0.5 - 0.2;
+      p.dataset.speed = Math.random() * 0.5 + 0.2;
       particleLayer.appendChild(p);
       particles.push(p);
     }
