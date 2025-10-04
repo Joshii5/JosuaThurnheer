@@ -1,11 +1,9 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>J.I.S.S. Thurnheer — Portfólio & Currículo</title>
+<html lang="pt-BR" class=" velrcicer idc0_350"><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>J.I.S.S. Thurnheer — Portfólio &amp; Currículo</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&amp;family=Playfair+Display:wght@400;700&amp;display=swap" rel="stylesheet">
   <style>
     :root{
       --bg:#f3f4f611;
@@ -22,8 +20,16 @@
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%;margin:0;background:var(--bg);}
+    html,body{min-height:100%;margin:0;background:var(--bg);}
     a{color:inherit;text-decoration:none}
+
+    /* Basic fallback background on body (ensures page bottom always has a tiled image) */
+    body{
+      background-image: url('bg0001.png');
+      background-repeat: repeat-y;
+      background-position: center top;
+      background-size: 100% auto; /* stretch to width, tile vertically */
+    }
 
     /* Container */
     .wrap{max-width:var(--max-width);margin:36px auto;padding:20px}
@@ -75,11 +81,7 @@
     .port-item .meta{padding:10px}
 
     /* Contact */
-    .contact{display: flex;
-    gap: 18px;
-    margin-top: 20px;
-    align-items: center;
-    flex-direction: column;}
+    .contact{display: flex;gap: 18px;margin-top: 20px;align-items: center;flex-direction: column;}
     .contact .left{flex:1}
     .contact .right{flex:0 0 260px}
 
@@ -107,32 +109,42 @@
     /* buttons micro animation */
     .btn:active{transform:translateY(2px) scale(.995)}
 
-    /* parallax background helper */
+    /* parallax layers: fixed to viewport, background tiles vertically and shifts by background-position (no transforms) */
     .parallax-layer{
       position:fixed;
-      inset:0;
+      top:0;
+      left:0;
+      width:100%;
+      height:100vh; /* always viewport height */
       z-index:-1;
-      background-repeat:repeat;
-      background-position:center top;
-      background-repeat:repeat-y;
-      background-position:center top;
-      background-size:100% auto;
       pointer-events:none;
-      opacity:1}
-    
-    .parallax-layer.l2{opacity:1}
-    .parallax-layer.l3{opacity:1}
-    .parallax-layer.l3{opacity:1}
+      background-repeat:repeat-y;      /* tile vertically */
+      background-position:center top;
+      background-size:100% auto;     /* stretch to viewport width, preserve ratio, then repeat vertically */
+      will-change:background-position;
+      opacity:1;
+    }
+
+    /* slight opacity differences per layer to create depth */
+    .parallax-layer.l1{opacity:0.55}
+    .parallax-layer.l2{opacity:0.65}
+    .parallax-layer.l3{opacity:0.8}
+    .parallax-layer.l4{opacity:1}
+
+    /* mobile performance: use smaller images and simpler background-size */
+    @media (max-width:600px){
+      .parallax-layer{background-size:cover}
+    }
 
   </style>
 </head>
 <body>
 
-  <!-- parallax layers (use bg.png) -->
-  <div class="parallax-layer l1" style="background-image:url('bg0004.png');transform:translateZ(0) scale(1.05);"></div>
-  <div class="parallax-layer l2" style="background-image:url('bg0003.png');transform:translateZ(0) scale(1.12);"></div>
-  <div class="parallax-layer l3" style="background-image:url('bg0002.png');transform:translateZ(0) scale(1.15);"></div>
-  <div class="parallax-layer l4" style="background-image:url('bg0001.png');transform:translateZ(0) scale(1.15);"></div>
+  <!-- parallax layers (use bg0004..bg0001.png). Note: no 'transform' inline. -->
+  <div class="parallax-layer l1" style="background-image:url('bg0004.png');"></div>
+  <div class="parallax-layer l2" style="background-image:url('bg0003.png');"></div>
+  <div class="parallax-layer l3" style="background-image:url('bg0002.png');"></div>
+  <div class="parallax-layer l4" style="background-image:url('bg0001.png');"></div>
 
   <div class="wrap">
     <header class="reveal">
@@ -140,7 +152,7 @@
         <img src="logo do face.png" alt="logo">
         <div>
           <h1>Josua Thurnheer</h1>
-          <p>Diretor de Arte • Designer • Motion & VFX</p>
+          <p>Diretor de Arte • Designer • Motion &amp; VFX</p>
         </div>
       </div>
       <nav>
@@ -155,12 +167,12 @@
       <section class="hero">
         <div class="hero-left reveal">
           <p class="subtitle">Olá — eu crio experiências visuais que contam histórias</p>
-          <h2 class="title">Diretor de Arte & Motion Designer</h2>
+          <h2 class="title">Diretor de Arte &amp; Motion Designer</h2>
           <p class="subtitle">Com ampla experiência em direção de arte, personagens virtuais, animação 2D/3D, e campanhas integradas.</p>
 
           <div class="tags">
             <span class="chip">Direção de Arte</span>
-            <span class="chip">Animação & VFX</span>
+            <span class="chip">Animação &amp; VFX</span>
             <span class="chip">Design 3D</span>
             <span class="chip">Produção</span>
           </div>
@@ -171,21 +183,21 @@
               <div class="service">
                 <img src="imagem1.jpg" alt="">
                 <div>
-                  <strong>Concepção & Marketing</strong>
+                  <strong>Concepção &amp; Marketing</strong>
                   <p>Criação de narrativas visuais e planejamento de produção para branding.</p>
                 </div>
               </div>
               <div class="service">
                 <img src="imagem2.jpg" alt="">
                 <div>
-                  <strong>Animação & VFX</strong>
+                  <strong>Animação &amp; VFX</strong>
                   <p>Sequências fluidas e responsivas para publicidade, eventos e experiências digitais interativas.</p>
                 </div>
               </div>
             </div>
 
             <div class="card">
-              <h3>Qualidades & Soft Skills</h3>
+              <h3>Qualidades &amp; Soft Skills</h3>
               <ul style="margin:0;padding-left:18px;color:var(--muted-2)">
                 <li>Planejamento meticuloso e organização.</li>
                 <li>Comunicação clara com equipes multidisciplinares.</li>
@@ -211,7 +223,7 @@
             <img src="vinheta.png" alt="vinheta" style="width:56px;height:56px;object-fit:cover;border-radius:10px;box-shadow:var(--shadow)">
             <div>
               <strong>Contato rápido</strong>
-              <p style="margin:6px 0 0;color:var(--muted-2)">josuathurnheer@gmail.com.com</p>
+              <p style="margin:6px 0 0;color:var(--muted-2)">josuathurnheer@gmail.com</p>
               <p style="margin:6px 0 0;color:var(--muted-2)">+55 73 9 9179-8117</p>
             </div>
           </div>
@@ -229,19 +241,16 @@
         <div class="card" style="margin-top:12px">
           <div style="display:flex;flex-direction:column;gap:10px">
             <div>
-              <h4>Direção de Arte & Conceito</h4>
-              <p style="margin:6px 0 0;color:var(--muted-2)">
-                Direção criativa para campanhas, desenvolvimento de linguagem visual, moodboards e entrega de assets finais prontos para produção.</p>
+              <h4>Direção de Arte &amp; Conceito</h4>
+              <p style="margin:6px 0 0;color:var(--muted-2)">Direção criativa para campanhas, desenvolvimento de linguagem visual, moodboards e entrega de assets finais prontos para produção.</p>
             </div>
             <div>
               <h4>Animação 2D e 3D</h4>
-              <p style="margin:6px 0 0;color:var(--muted-2)">
-                Desenvolvimento de personagens, animação, motion graphics, 3d, web interativo e integração com VFX para vídeos e instalações.</p>
+              <p style="margin:6px 0 0;color:var(--muted-2)">Desenvolvimento de personagens, animação, motion graphics, 3d, web interativo e integração com VFX para vídeos e instalações.</p>
             </div>
             <div>
               <h4>Consultoria de Produção</h4>
-              <p style="margin:6px 0 0;color:var(--muted-2)">
-                Planejamento de cronograma, orçamentos e coordenação técnica com equipes de produção.</p>
+              <p style="margin:6px 0 0;color:var(--muted-2)">Planejamento de cronograma, orçamentos e coordenação técnica com equipes de produção.</p>
             </div>
           </div>
         </div>
@@ -290,9 +299,9 @@
             <p style="margin:0 0 8px;color:var(--muted-2)">Interessado em trabalhar junto? Me envie uma mensagem com o projeto e prazos — respondo em até 48h.</p>
             <form onsubmit="event.preventDefault(); alert('Enviado! Substitua este comportamento com integração real.');">
               <div style="display:flex;flex-direction:column;gap:8px">
-                <input required placeholder="Seu nome" style="padding:12px;border-radius:10px;border:1px solid #e6e7ea">
-                <input required placeholder="Email" style="padding:12px;border-radius:10px;border:1px solid #e6e7ea">
-                <textarea required placeholder="Mensagem" rows="4" style="padding:12px;border-radius:10px;border:1px solid #e6e7ea"></textarea>
+                <input required="" placeholder="Seu nome" style="padding:12px;border-radius:10px;border:1px solid #e6e7ea">
+                <input required="" placeholder="Email" style="padding:12px;border-radius:10px;border:1px solid #e6e7ea">
+                <textarea required="" placeholder="Mensagem" rows="4" style="padding:12px;border-radius:10px;border:1px solid #e6e7ea"></textarea>
                 <button class="btn">Enviar</button>
               </div>
             </form>
@@ -306,7 +315,7 @@
 
     </main>
 
-    <footer class="reveal">&copy; <span id="year"></span> Seu Nome — Todos os direitos reservados</footer>
+    <footer class="reveal">© <span id="year"></span> Seu Nome — Todos os direitos reservados</footer>
   </div>
 
   <script>
@@ -321,23 +330,42 @@
     },{threshold:0.12});
     document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-    // simple parallax
-    const l1 = document.querySelector('.parallax-layer.l1');
-    const l2 = document.querySelector('.parallax-layer.l2');
-    const l3 = document.querySelector('.parallax-layer.l3');
-    const l4 = document.querySelector('.parallax-layer.l4');
-    window.addEventListener('scroll',()=>{
+    // parallax using background-position (no transform on the layer elements)
+    const layers = [
+      {el: document.querySelector('.parallax-layer.l1'), speed: 0.03},
+      {el: document.querySelector('.parallax-layer.l2'), speed: 0.06},
+      {el: document.querySelector('.parallax-layer.l3'), speed: 0.12},
+      {el: document.querySelector('.parallax-layer.l4'), speed: 0.2}
+    ];
+
+    function updateParallax(){
       const s = window.scrollY;
-      if(l1) l1.style.transform = `translateY(${s*-0.1}px) scale(1.05)`;
-      if(l2) l2.style.transform = `translateY(${s*-0.2}px) scale(1.12)`;
-      if(l3) l3.style.transform = `translateY(${s*-0.5}px) scale(1.12)`;
-      if(l4) l4.style.transform = `translateY(${s*-1}px) scale(1.12)`;
-    });
+      layers.forEach(l => {
+        if(!l.el) return;
+        // move background position; negative value makes near layers move faster
+        const y = Math.round(-s * l.speed);
+        l.el.style.backgroundPosition = `center ${y}px`;
+      });
+    }
+
+    // throttle with requestAnimationFrame for performance
+    let ticking = false;
+    window.addEventListener('scroll', ()=>{
+      if(!ticking){
+        window.requestAnimationFrame(()=>{ updateParallax(); ticking = false });
+        ticking = true;
+      }
+    }, {passive:true});
+
+    // initial update
+    updateParallax();
 
     // mobile-friendly focus outline for keyboard users
     document.body.addEventListener('keydown',(e)=>{
       if(e.key==='Tab') document.documentElement.style.scrollBehavior='smooth';
     });
   </script>
+
+
 </body>
 </html>
