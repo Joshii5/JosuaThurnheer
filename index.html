@@ -357,7 +357,7 @@
       {el: document.querySelector('.parallax-layer.l1'), speed: 0.05},
       {el: document.querySelector('.parallax-layer.l2'), speed: 0.2},
       {el: document.querySelector('.parallax-layer.l3'), speed: 0.4},
-      {el: document.querySelector('.parallax-layer.l4'), speed: 0.7}
+      {el: document.querySelector('.parallax-layer.l4'), speed: 0.6}
     ];
 
     function updateParallax(){
@@ -406,7 +406,7 @@
       particles.forEach(p => {
         const angle = (parseFloat(p.dataset.angle) + s * p.dataset.speed) % 360;
         // deslocamento no eixo Y (partículas "seguem" a rolagem)
-        const offsetY = s * 0.8 * p.dataset.speed; // ajuste o 0.3 para mais/menos movimento
+        const offsetY = s * -0.7 * p.dataset.speed; // ajuste o 0.3 para mais/menos movimento
       p.style.transform = `translateY(${offsetY}px) rotate(${angle}deg)`;
       });
     });
