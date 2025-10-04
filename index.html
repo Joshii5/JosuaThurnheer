@@ -321,10 +321,10 @@
     const l4 = document.querySelector('.parallax-layer.l4');
     window.addEventListener('scroll',()=>{
       const s = window.scrollY;
-      if(l1) l1.style.transform = `translateY(${s*-0.20}px) scale(1.05)`;
-      if(l2) l2.style.transform = `translateY(${s*-0.15}px) scale(1.12)`;
-      if(l3) l3.style.transform = `translateY(${s*-0.10}px) scale(1.12)`;
-      if(l4) l4.style.transform = `translateY(${s*-0.05}px) scale(1.12)`;
+      if(l1) l1.style.transform = `translateY(${s*-0.05}px) scale(1.05)`;
+      if(l2) l2.style.transform = `translateY(${s*-0.10}px) scale(1.12)`;
+      if(l3) l3.style.transform = `translateY(${s*-0.15}px) scale(1.12)`;
+      if(l4) l4.style.transform = `translateY(${s*-0.20}px) scale(1.12)`;
     });
 
     // mobile-friendly focus outline for keyboard users
