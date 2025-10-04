@@ -140,7 +140,7 @@
   .parallax-layer.particles {
     position: fixed;
     inset: 0;
-    z-index: -1; /* atrás das camadas principais */
+    z-index: -1;
     pointer-events: none;
     overflow: hidden;
   }
@@ -385,7 +385,7 @@
     // ============================
     // partículas
     // ============================
-    const particleLayer = document.querySelector('.parallax-layer.particles');
+    const particleLayer = document.querySelector('.parallax-layer.particles'),speed: 0.8;
     const numParticles = 25;
     const particles = [];
 
@@ -400,12 +400,14 @@
       particles.push(p);
     }
 
-    // rotação com scroll
+    // rotação + movimento com scroll
     window.addEventListener('scroll', () => {
       const s = window.scrollY;
       particles.forEach(p => {
         const angle = (parseFloat(p.dataset.angle) + s * p.dataset.speed) % 360;
-        p.style.transform = `rotate(${angle}deg)`;
+        // deslocamento no eixo Y (partículas "seguem" a rolagem)
+        const offsetY = s * 0.8 * p.dataset.speed; // ajuste o 0.3 para mais/menos movimento
+      p.style.transform = `translateY(${offsetY}px) rotate(${angle}deg)`;
       });
     });
 
